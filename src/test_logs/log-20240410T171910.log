@@ -1,0 +1,7 @@
+17:19:11.323 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  /Users/anatolykarpovMAC15/Library/Caches/JetBrains/IdeaIC2023.3/temp-testng-customsuite.xml
+
+17:19:16.715 [main] INFO  com.phonebook.tests.TestBase -- Start testisHomeComponentPresentTest
+17:19:16.749 [main] INFO  com.phonebook.tests.TestBase -- PASSED isHomeComponentPresentTest
+17:19:16.749 [main] INFO  com.phonebook.tests.TestBase -- Stop test
+17:19:16.749 [main] INFO  com.phonebook.tests.TestBase -- =============================================

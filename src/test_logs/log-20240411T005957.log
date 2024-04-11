@@ -1,0 +1,7 @@
+00:59:58.108 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  /Users/anatolykarpovMAC15/Library/Caches/JetBrains/IdeaIC2023.3/temp-testng-customsuite.xml
+
+01:00:02.808 [main] INFO  com.phonebook.tests.TestBase -- Start testisHomeComponentPresentTest
+01:00:23.905 [main] ERROR com.phonebook.tests.TestBase -- FAILED isHomeComponentPresentTestScreenshot:/Users/anatolykarpovMAC15/GitHub/Phonebook/screenshots/screen-1712790023875.png
+01:00:23.905 [main] INFO  com.phonebook.tests.TestBase -- Stop test
+01:00:23.905 [main] INFO  com.phonebook.tests.TestBase -- =============================================
