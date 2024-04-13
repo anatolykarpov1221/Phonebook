@@ -5,7 +5,7 @@ public class Contact {
     private  String lastName;
     private  String phone;
     private  String email;
-    private  String adress;
+    private  String address;
     private  String description;
 
     @Override
@@ -37,8 +37,8 @@ public class Contact {
         return this;
     }
 
-    public Contact setAdress(String adress) {
-        this.adress = adress;
+    public Contact setAddress(String adress) {
+        this.address = adress;
         return this;
     }
 
@@ -64,7 +64,7 @@ public class Contact {
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
     public String getDescription() {

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class BaseHelper {
+
     WebDriver driver;
 
     public BaseHelper(WebDriver driver) {
@@ -17,20 +18,19 @@ public class BaseHelper {
     }
 
     public boolean isElementPresent(By locator) {
-        return driver.findElements(locator).size() > 0;
+        return driver.findElements(locator).size()>0;
     }
 
     public void type(By locator, String text) {
         if (text != null) {
-
             click(locator);
             driver.findElement(locator).clear();
             driver.findElement(locator).sendKeys(text);
         }
     }
 
-    public void click(By Locator) {
-        driver.findElement(Locator).click();
+    public void click(By locator) {
+        driver.findElement(locator).click();
     }
 
     public boolean isAlertPresent() {

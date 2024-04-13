@@ -1,17 +1,42 @@
 package com.phonebook.tests;
 
+import com.phonebook.models.Contact;
+import com.phonebook.models.User;
+import com.phonebook.utils.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.DataProvider;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+public class AddContactTests extends TestBase{
+    @BeforeMethod
+    public void ensurePrecondition(){
+        if(!app.getUser().isLoginLinkElementPresent()){
+            app.getUser().clickOnSignOutButton();
+        }
 
-public class AddContactTests extends TestBase {
+        app.getUser().clickOnLoginLink();
+        //Enter
+        app.getUser().fillLoginRegisterForm(new User().setEmail("student17@web.com")
+                .setPassword( "Super1557!"));
+        app.getUser().clickOnLoginButton();
+    }
 
-    public void addContactPositiveTest() {
+    @Test
+    public void addContactPositiveTest(){
+        //click on Add link
+        app.getContact().clickOnAddLink();
+        //enter name
+        app.getContact().fillAddContactForm(new Contact()
+                .setName("Petr")
+                .setLastName("Petrov")
+                .setPhone("7845235699")
+                .setEmail("Petr1999@web.com")
+                .setAddress("Arctica")
+                .setDescription("goalkeeper"));
+        //click on Save button
+        app.getContact().clickOnSaveButton();
+        //assert Contact is added
         Assert.assertTrue(app.getContact().isContactCreated("Petr"));
     }
 
@@ -19,20 +44,31 @@ public class AddContactTests extends TestBase {
     public void postCondition() {
         app.getContact().removeContact();
     }
+    @Test(dataProvider = "addNewContact", dataProviderClass = DataProviders.class)
+    public void addContactPositiveTestFromDataProvider(String name, String lastname, String phone,
+                                                       String email, String address, String description) {
+        app.getContact().clickOnAddLink();
+        app.getContact().fillAddContactForm(new Contact()
+                .setName(name)
+                .setLastName(lastname)
+                .setPhone(phone)
+                .setEmail(email)
+                .setAddress(address)
+                .setDescription(description));
+        app.getContact().clickOnSaveButton();
+        Assert.assertTrue(app.getContact().isContactCreated(name));
+    }
 
-//    @DataProvider
-//    public Iterator<Object[]> addNewContact() {
-//        List<Object[]> list = new ArrayList<>();
-//        list.add(new Object[]{"Petr1", "Petrov", "17364548828", "petr@web.com", "Munich", "goalkeeper"});
-//        list.add(new Object[]{"Petr2", "Petrov", "17364548828", "petr@web.com", "Munich", "goalkeeper"});
-//        list.add(new Object[]{"Petr3", "Petrov", "17364548828", "petr@web.com", "Munich", "goalkeeper"});
-//        // @Test(dataProvider = "addNewContact")
-//        Iterator<Object[]> object;
-//        return object;
-//
-//    }
+
+    @Test(dataProvider = "addNewContactFromCsvFile", dataProviderClass = DataProviders.class)
+    public void addContactPositiveTestFromDataProviderWithCsvFile(Contact contact) {
+
+        app.getContact().clickOnAddLink();
+        app.getContact().fillAddContactForm(contact);
+        app.getContact().clickOnSaveButton();
+
+        Assert.assertTrue(app.getContact().isContactCreated(contact.getName()));
+    }
+
 }
-
-
-
 

@@ -11,7 +11,7 @@
 
             </class>
 
-            <class name="com.phonebook.tests.AddContactTest">
+            <class name="com.phonebook.tests.AddContactTests">
                 <methods>
                     <exclude name=".*From.*"/>
                 </methods>
