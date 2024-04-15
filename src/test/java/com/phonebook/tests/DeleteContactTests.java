@@ -24,7 +24,7 @@ public class DeleteContactTests extends TestBase{
                 .setLastName("Petrov")
                 .setPhone("7845235699")
                 .setEmail("Petr1999@web.com")
-                .setAdress("Arctica")
+                .setAddress("Arctica")
                 .setDescription("goalkeeper"));
         app.getContact().clickOnSaveButton();
 
